@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Information</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f1f7f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 650px;
+      background: white;
+      padding: 35px 25px;
+      border-radius: 28px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+      text-align: center;
+    }
+
+    .progress {
+      height: 14px;
+      background: #e5ebea;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .progress span {
+      display: block;
+      width: 50%;
+      height: 100%;
+      background: #08b58d;
+    }
+
+    .step {
+      display: inline-block;
+      padding: 9px 15px;
+      background: #effaf7;
+      color: #08a982;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 35px;
+    }
+
+    .gender {
+      border: 2px solid #edf0ef;
+      border-radius: 20px;
+      padding: 22px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .gender.selected {
+      border-color: #08b58d;
+      background: #f5fffc;
+    }
+
+    .icon {
+      font-size: 28px;
+      margin-right: 18px;
+    }
+
+    .name {
+      flex: 1;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .arrow {
+      font-size: 30px;
+    }
+
+    button {
+      width: 100%;
+      padding: 22px;
+      margin-top: 15px;
+      border: 0;
+      border-radius: 20px;
+      background: #08b58d;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .notice {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="progress">
+      <span></span>
+    </div>
+
+    <div class="step">STEP 1 OF 2</div>
+
+    <h1>Select your gender to begin</h1>
+
+    <div class="gender" onclick="selectGender(this)">
+      <div class="icon">👨</div>
+      <div class="name">Male</div>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="gender" onclick="selectGender(this)">
+      <div class="icon">👩</div>
+      <div class="name">Female</div>
+      <div class="arrow">→</div>
+    </div>
+
+    <button onclick="continueApplication()">
+      Continue
+    </button>
+
+    <div class="notice">
+      This is an independent information page and is not an official
+      government website. Verify any application or payment information
+      through the relevant official government source before proceeding.
+    </div>
+
+  </div>
+
+  <script>
+    let selected = false;
+
+    function selectGender(element) {
+      document.querySelectorAll(".gender").forEach(item => {
+        item.classList.remove("selected");
+      });
+
+      element.classList.add("selected");
+      selected = true;
+    }
+
+    function continueApplication() {
+      if (!selected) {
+        alert("Please select your gender first.");
+        return;
+      }
+
+      alert("Please verify the official application website before continuing.");
+    }
+  </script>
+
+</body>
+</html>
+  .bolt{font-size:28px;margin-left:7px}
+  .secure{
+    text-align:center;
+    color:#b7c0c0;
+    font-size:20px;
+    margin-top:34px;
+  }
+  .lock{font-size:25px;margin-right:7px}
+  @media (max-width:600px){
+    body{padding:0;background:#f1f7f6}
+    .page{min-height:100vh}
+    .card{
+      width:100%;
+      border-radius:32px;
+      padding:28px 24px 30px;
+    }
+    .progress{height:14px;margin-bottom:48px}
+    .step{font-size:17px;padding:8px 14px;margin-bottom:20px}
+    h1{font-size:30px;margin-bottom:42px}
+    .option{min-height:92px;padding:0 20px;border-radius:21px;margin-bottom:20px}
+    .emoji{font-size:27px;width:48px;margin-right:14px}
+    .label{font-size:25px}
+    .arrow{font-size:32px}
+    .apply{min-height:88px;font-size:26px;border-radius:21px}
+    .secure{font-size:17px;margin-top:28px}
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="progress"><span></span></div>
+
+      <div class="step">STEP 1 OF 2</div>
+
+      <h1>Select your gender to<br>begin:</h1>
+
+      <div class="option" data-gender="Male" role="button" tabindex="0">
+        <div class="emoji">👨</div>
+        <div class="label">Male</div>
+        <div class="arrow">→</div>
+      </div>
+
+      <div class="option" data-gender="Female" role="button" tabindex="0">
+        <div class="emoji">👩</div>
+        <div class="label">Female</div>
+        <div class="arrow">→</div>
+      </div>
+
+      <button class="apply" id="apply">Apply Now <span class="bolt">⚡</span></button>
+
+      <div class="secure"><span class="lock">🔒</span>Safe &amp; Encrypted Connection</div>
+    </section>
+  </main>
+
+<script>
+  let selected = null;
+  document.querySelectorAll('.option').forEach(option=>{
+    const choose=()=>{
+      selected=option.dataset.gender;
+      document.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));
+      option.classList.add('selected');
+    };
+    option.addEventListener('click',choose);
+    option.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' ') {e.preventDefault();choose();}
+    });
+  });
+  document.getElementById('apply').addEventListener('click',()=>{
+    if(!selected){
+      alert('Please select your gender first.');
+      return;
+    }
+    alert('Selected: '+selected);
+  });
+</script>
+</body>
+</html>
